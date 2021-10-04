@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  font-family: 'VT323', monospace;
+  font-size: 400%;
+  background-color: black;
+}
+
+.Top {
+  background-color: black;
+}
+
+.Wallet-Button button{
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  font-size: calc(2.5px + 2vmin);
+}
+
+.Header-parent {
+  position: relative;
+  top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-height: auto;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Para-Content {
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  display: flex;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
