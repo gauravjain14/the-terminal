@@ -4,7 +4,7 @@ import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import sol_terminal from './sol_terminal.jpeg';
-import CSS from 'csstype';
+//import CSS from 'csstype';
 
 import * as anchor from "@project-serum/anchor";
 
@@ -33,7 +33,7 @@ const WalletDetails = styled.div`
       padding: 5px;
     `;
 
-const SolImage = styled.div`
+/*const SolImage = styled.div`
     display: flex;
     justify-content: center;
   `;
@@ -48,7 +48,7 @@ const PageBody = styled.div`
 var imageStyle = {
   width: "50%",
   height: "50%",
-};
+};*/
 
 const MintContainer = styled.div``; // add your styles here
 
@@ -233,7 +233,7 @@ const Home = (props: HomeProps) => {
       </MintContainer>
 
       <div>
-        <img src={sol_terminal} style={{width:"30%",
+        <img alt="Terminal" src={sol_terminal} style={{width:"30%",
         height:"30%",
         aspectRatio: '1',
         backgroundColor:'black'}}/>

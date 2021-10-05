@@ -1,6 +1,7 @@
 import "./App.css";
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import { useMemo } from "react";
+//import firebase from "./firebase";
 
 import Home from "./Home";
 
