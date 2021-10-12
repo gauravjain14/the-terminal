@@ -57,7 +57,7 @@ const TheTerminal = styled.span`
   color: rgba(255,255,255,1);
   align-self: center;
   text-align: center;
-  font-size: 96px;
+  font-size: 110px;
   margin-top: 20px;
 `;
 
@@ -65,7 +65,6 @@ const Image = styled.img`
   height: 48px;
   margin-top: 6px;
   object-fit: contain;
-  margin-left: 48%;
 `;
 
 const Image2 = styled.img`
@@ -78,45 +77,45 @@ const ImageRow = styled.div`
   height: auto;
   flex-direction: row;
   display: block;
+  margin: 0 auto;
 `;
 
 const MintContainer = styled.div`
   width: auto;
   height: 48px;
   align-items: middle;
-  margin-left: 90%;
+  display: none;
 `;
 
 const Group = styled.div`
-  width: 100%;
   height: 144px;
   flex-direction: row;
-  display: flex;
-  margin-top: 20px;
-  margin-left: 35%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 36px;
 `;
 
 const Image3 = styled.img`
-  height: 90%;
-  margin: 5px;
+  height: 100%;
+  margin: 10px;
   object-fit: contain;
 `;
 
 const Image4 = styled.img`
-  height: 90%;
-  margin: 5px;
+  height: 100%;
+  margin: 10px;
   object-fit: contain;
 `;
 
 const Image5 = styled.img`
-  height: 90%;
-  margin: 5px;
+  height: 100%;
+  margin: 10px;
   object-fit: contain;
 `;
 
 const Image6 = styled.img`
-  height: 90%;
-  margin: 5px;
+  height: 100%;
+  margin: 10px;
   object-fit: contain;
 `;
 
@@ -125,12 +124,9 @@ const Text3 = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255,255,255,1);
-  font-size: 36px;
-  width: 540px;
-  height: 109px;
-  text-align: center;
-  margin-top: 48px;
-  align-self: center;
+  font-size: 48px;
+  margin: 0 auto;
+  margin-top: 36px;
 `;
 
 const Text = styled.span`
@@ -155,8 +151,8 @@ const Text2 = styled.span`
   width: 960px;
   height: auto;
   text-align: center;
+  align-self: center;
   margin-top: 24px;
-  margin-left: 444px;
   margin-bottom: 120px;
 `;
 
