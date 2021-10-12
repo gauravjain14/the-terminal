@@ -65,6 +65,7 @@ const Image = styled.img`
   height: 48px;
   margin-top: 6px;
   object-fit: contain;
+  margin-left: 48%;
 `;
 
 const Image2 = styled.img`
@@ -77,52 +78,45 @@ const ImageRow = styled.div`
   height: auto;
   flex-direction: row;
   display: block;
-  margin: 0 auto;
-  align-items: center;
 `;
 
 const MintContainer = styled.div`
   width: auto;
-  height: auto;
-  display: none;
+  height: 48px;
+  align-items: middle;
+  margin-left: 90%;
 `;
 
 const Group = styled.div`
-  width: auto;
-  height: 129px;
+  width: 100%;
+  height: 144px;
   flex-direction: row;
-  align-self: center;
-  align-items: stretch;
-  justify-content: space-between;
-  margin-top: 48px;
   display: flex;
+  margin-top: 20px;
+  margin-left: 35%;
 `;
 
 const Image3 = styled.img`
-  width: 100%;
-  height: 120px;
-  margin: 15px;
+  height: 90%;
+  margin: 5px;
   object-fit: contain;
 `;
 
 const Image4 = styled.img`
-  width: 100%;
-  height: 120px;
-  margin: 15px;
+  height: 90%;
+  margin: 5px;
   object-fit: contain;
 `;
 
 const Image5 = styled.img`
-  width: 100%;
-  height: 120px;
-  margin: 15px;
+  height: 90%;
+  margin: 5px;
   object-fit: contain;
 `;
 
 const Image6 = styled.img`
-  width: 100%;
-  height: 120px;
-  margin: 15px;
+  height: 90%;
+  margin: 5px;
   object-fit: contain;
 `;
 
