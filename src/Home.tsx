@@ -41,6 +41,7 @@ const WalletDetails = styled.div`
       margin-right: 40px;
       padding: 5px;
     `;
+
 const Container = styled.div`
     display: flex;
     background-color: rgba(0,0,0,1);
@@ -54,50 +55,36 @@ const TheTerminal = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255,255,255,1);
-  line-height: 84px;
-  font-size: 96px;
-  margin-top: 98px;
   align-self: center;
+  text-align: center;
+  font-size: 96px;
+  margin-top: 20px;
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 48px;
-  margin-top: 6px;
-  object-fit: contain;
-`;
-
-const DiscordButton = styled(Link)`
-  width: 100%;
   height: 48px;
   margin-top: 6px;
   object-fit: contain;
 `;
 
 const Image2 = styled.img`
-  width: 100%;
   height: 43px;
-  margin-left: 6px;
   margin-top: 6px;
   object-fit: contain;
 `;
 
 const ImageRow = styled.div`
-  height: 67px;
+  height: auto;
   flex-direction: row;
-  display: flex;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: 64px;
+  display: block;
+  margin: 0 auto;
+  align-items: center;
 `;
 
 const MintContainer = styled.div`
   width: auto;
   height: auto;
-  flex-direction: column;
-  display: flex;
-  margin-top: 9px;
-  margin-left: 640px;
+  display: none;
 `;
 
 const Group = styled.div`
