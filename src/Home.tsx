@@ -35,19 +35,23 @@ const ConnectButton = styled(WalletDialogButton)`
 const CounterText = styled.span``; // add your styles here
 
 const WalletDetails = styled.div`
-      color: white;
-      text-align: right;
-      margin-top: 20px;
-      margin-right: 40px;
-      padding: 5px;
-    `;
+  font-color: white;
+  color: white;
+  width: 100%;
+  height: 48px;
+  display: inline-block;
+  position: absolute;
+  margin-top: 56px;
+  margin-left: 20px;
+`;
 
 const Container = styled.div`
     display: flex;
     background-color: rgba(0,0,0,1);
     flex-direction: column;
     width: 100vw;
-    padding-bottom: 36px;
+    padding-bottom: 60px;
+    padding-top: 24px;
   `;
 
 const TheTerminal = styled.span`
@@ -81,10 +85,11 @@ const ImageRow = styled.div`
 `;
 
 const MintContainer = styled.div`
-  width: auto;
+  width: 100%;
   height: 48px;
-  align-items: middle;
-  display: none;
+  display: inline-block;
+  position: absolute;
+  margin-left: 20px;
 `;
 
 const Group = styled.div`
@@ -165,7 +170,7 @@ const Dots = styled.span`
   align-self: center;
 `;
 
-const Group2 = styled.div`
+const Group2Backup = styled.div`
   width: auto;
   height: 469px;
   flex-direction: column;
@@ -178,6 +183,14 @@ const Group2 = styled.div`
   padding-bottom: 36px;
 `;
 
+const Group2 = styled.div`
+  margin: 0 auto;  
+  flex-direction: column;
+  align-self: center;
+  align-items: stretch;
+  justify-content: space-between;
+`;
+
 const Spaceman = styled.span`
   font-family: VT323;
   font-style: normal;
@@ -185,10 +198,9 @@ const Spaceman = styled.span`
   color: rgba(255,255,255,1);
   line-height: 84px;
   font-size: 36px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
   text-align: center;
+  align-items: center;
+  margin-right: 40%;
 `;
 
 const Intelligence = styled.span`
@@ -198,16 +210,15 @@ const Intelligence = styled.span`
   color: rgba(255,255,255,1);
   line-height: 84px;
   font-size: 36px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
   text-align: center;
+  align-items: center;
 `;
 
 const SpacemanRow = styled.div`
   height: 84px;
   flex-direction: row;
   display: flex;
+  margin: 0 auto;
 `;
 
 const Rect2 = styled.div`
@@ -227,6 +238,7 @@ const Rect2Row = styled.div`
   height: 143px;
   flex-direction: row;
   display: flex;
+  margin: 0 auto;
 `;
 
 const Planet = styled.span`
@@ -236,10 +248,9 @@ const Planet = styled.span`
   color: rgba(255,255,255,1);
   line-height: 84px;
   font-size: 36px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
   text-align: center;
+  align-items: center;
+  margin-right: 45%;
 `;
 
 const Spaceship = styled.span`
@@ -249,17 +260,16 @@ const Spaceship = styled.span`
   color: rgba(255,255,255,1);
   line-height: 84px;
   font-size: 36px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
   text-align: center;
+  align-items: center;
 `;
 
 const PlanetRow = styled.div`
   height: 84px;
   flex-direction: row;
   display: flex;
-  margin-top: 12px;
+  margin: 0 auto;
+  margin-top: 20px;
 `;
 
 const Rect3 = styled.div`
@@ -449,7 +459,8 @@ const Home = (props: HomeProps) => {
           style={{ height: '43px', width: '100%', marginLeft: '15px' }}>
           <Image2 src={twitter}></Image2>
         </a>
-        <MintContainer>
+      </ImageRow>
+      <MintContainer>
           {!wallet ? (
             <ConnectButton>Connect Wallet</ConnectButton>
           ) : (
@@ -479,7 +490,6 @@ const Home = (props: HomeProps) => {
               </MintButton>
             )}
         </MintContainer>
-      </ImageRow>
       <TheTerminal>The Terminal</TheTerminal>
       <Group>
         <Image3 src={icon1}></Image3>
