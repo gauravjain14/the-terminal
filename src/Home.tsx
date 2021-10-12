@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Countdown from "react-countdown";
+import { Link } from "react-router-dom";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import sol_terminal from './sol_terminal.jpeg';
+import icon1 from "./assets/images/ICON.png";
+import twitter from "./assets/images/twitter.png";
+import discord from "./assets/images/Discord-Logo-White.png";
+import './fonts/VT323/VT323-Regular.ttf';
+import "./Home.css";
 //import CSS from 'csstype';
 
 import * as anchor from "@project-serum/anchor";
@@ -21,7 +27,10 @@ import {
   shortenAddress,
 } from "./candy-machine";
 
-const ConnectButton = styled(WalletDialogButton)``;
+const ConnectButton = styled(WalletDialogButton)`
+  width: 150px;
+  border-radius: 10px;
+`;
 
 const CounterText = styled.span``; // add your styles here
 
@@ -32,25 +41,276 @@ const WalletDetails = styled.div`
       margin-right: 40px;
       padding: 5px;
     `;
-
-/*const SolImage = styled.div`
+const Container = styled.div`
     display: flex;
-    justify-content: center;
+    background-color: rgba(0,0,0,1);
+    flex-direction: column;
+    width: 100vw;
+    padding-bottom: 36px;
   `;
 
-const PageBody = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  `;
+const TheTerminal = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  line-height: 84px;
+  font-size: 96px;
+  margin-top: 98px;
+  align-self: center;
+`;
 
-var imageStyle = {
-  width: "50%",
-  height: "50%",
-};*/
+const Image = styled.img`
+  width: 100%;
+  height: 48px;
+  margin-top: 6px;
+  object-fit: contain;
+`;
 
-const MintContainer = styled.div``; // add your styles here
+const DiscordButton = styled(Link)`
+  width: 100%;
+  height: 48px;
+  margin-top: 6px;
+  object-fit: contain;
+`;
+
+const Image2 = styled.img`
+  width: 100%;
+  height: 43px;
+  margin-left: 6px;
+  margin-top: 6px;
+  object-fit: contain;
+`;
+
+const ImageRow = styled.div`
+  height: 67px;
+  flex-direction: row;
+  display: flex;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 64px;
+`;
+
+const MintContainer = styled.div`
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  display: flex;
+  margin-top: 9px;
+  margin-left: 640px;
+`;
+
+const Group = styled.div`
+  width: auto;
+  height: 129px;
+  flex-direction: row;
+  align-self: center;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 48px;
+  display: flex;
+`;
+
+const Image3 = styled.img`
+  width: 100%;
+  height: 120px;
+  margin: 15px;
+  object-fit: contain;
+`;
+
+const Image4 = styled.img`
+  width: 100%;
+  height: 120px;
+  margin: 15px;
+  object-fit: contain;
+`;
+
+const Image5 = styled.img`
+  width: 100%;
+  height: 120px;
+  margin: 15px;
+  object-fit: contain;
+`;
+
+const Image6 = styled.img`
+  width: 100%;
+  height: 120px;
+  margin: 15px;
+  object-fit: contain;
+`;
+
+const Text3 = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  font-size: 36px;
+  width: 540px;
+  height: 109px;
+  text-align: center;
+  margin-top: 48px;
+  align-self: center;
+`;
+
+const Text = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  font-size: 36px;
+  width: 720px;
+  height: auto;
+  text-align: center;
+  margin-top: 120px;
+  align-self: center;
+`;
+
+const Text2 = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(63,255,0,1);
+  font-size: 30px;
+  width: 960px;
+  height: auto;
+  text-align: center;
+  margin-top: 24px;
+  margin-left: 444px;
+  margin-bottom: 120px;
+`;
+
+const Dots = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(251,248,248,1);
+  font-size: 74px;
+  align-self: center;
+`;
+
+const Group2 = styled.div`
+  width: auto;
+  height: 469px;
+  flex-direction: column;
+  align-self: center;
+  align-items: stretch;
+  justify-content: space-between;
+  margin-top: 48px;
+  display: flex;
+  position: relative;
+  padding-bottom: 36px;
+`;
+
+const Spaceman = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  line-height: 84px;
+  font-size: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+`;
+
+const Intelligence = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  line-height: 84px;
+  font-size: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+`;
+
+const SpacemanRow = styled.div`
+  height: 84px;
+  flex-direction: row;
+  display: flex;
+`;
+
+const Rect2 = styled.div`
+  width: 282px;
+  height: 143px;
+  background-color: rgba(63,255,0,1);
+`;
+
+const Rect4 = styled.div`
+  width: 282px;
+  height: 143px;
+  background-color: rgba(63,255,0,1);
+  margin-left: 109px;
+`;
+
+const Rect2Row = styled.div`
+  height: 143px;
+  flex-direction: row;
+  display: flex;
+`;
+
+const Planet = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  line-height: 84px;
+  font-size: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+`;
+
+const Spaceship = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  line-height: 84px;
+  font-size: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+`;
+
+const PlanetRow = styled.div`
+  height: 84px;
+  flex-direction: row;
+  display: flex;
+  margin-top: 12px;
+`;
+
+const Rect3 = styled.div`
+  width: 282px;
+  height: 143px;
+  background-color: rgba(63,255,0,1);
+`;
+
+const Rect5 = styled.div`
+  width: 282px;
+  height: 143px;
+  background-color: rgba(63,255,0,1);
+  margin-left: 109px;
+`;
+
+const Rect3Row = styled.div`
+  height: 143px;
+  flex-direction: row;
+  display: flex;
+`;
+
+const TextStack = styled.div`
+  width: 969px;
+  height: 576px;
+  margin-top: 117px;
+  margin-left: 476px;
+  position: relative;
+`;
 
 const MintButton = styled(Button)``; // add your styles here
 
@@ -186,7 +446,7 @@ const Home = (props: HomeProps) => {
   }, [wallet, props.candyMachineId, props.connection]);
 
   return (
-    <main>
+    <Container>
       <WalletDetails>
         {wallet && (
           <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
@@ -200,83 +460,86 @@ const Home = (props: HomeProps) => {
 
         {wallet && <p>Remaining: {itemsRemaining}</p>}
       </WalletDetails>
+      <ImageRow>
 
-      <MintContainer>
-        {!wallet ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
-        ) : (
-            <MintButton
-              disabled={isSoldOut || isMinting || !isActive}
-              //disabled={isMinting || !isActive}
-              //{isSoldOut ? }
-              onClick={onMint}
-              variant="contained"
-            >
-              {isSoldOut ? (
-                "SOLD OUT"
-              ) : isActive ? (
-                isMinting ? (
-                  <CircularProgress />
+        <a href="https://discord.gg/YVem6zUS"
+          target="_blank" rel="noopener noreferrer"
+          style={{ height: '48px', width: '100%' }}>
+          <Image src={discord}></Image>
+        </a>
+        <a href="https://twitter.com"
+          target="_blank" rel="noopener noreferrer"
+          style={{ height: '43px', width: '100%', marginLeft: '15px' }}>
+          <Image2 src={twitter}></Image2>
+        </a>
+        <MintContainer>
+          {!wallet ? (
+            <ConnectButton>Connect Wallet</ConnectButton>
+          ) : (
+              <MintButton
+                disabled={isSoldOut || isMinting || !isActive}
+                //disabled={isMinting || !isActive}
+                //{isSoldOut ? }
+                onClick={onMint}
+                variant="contained"
+              >
+                {isSoldOut ? (
+                  "SOLD OUT"
+                ) : isActive ? (
+                  isMinting ? (
+                    <CircularProgress />
+                  ) : (
+                      "MINT"
+                    )
                 ) : (
-                    "MINT"
-                  )
-              ) : (
-                    <Countdown
-                      date={startDate}
-                      onMount={({ completed }) => completed && setIsActive(true)}
-                      onComplete={() => setIsActive(true)}
-                      renderer={renderCounter}
-                    />
-                  )}
-            </MintButton>
-          )}
-      </MintContainer>
-
-      <div>
-        <img alt="Terminal" src={sol_terminal} style={{width:"30%",
-        height:"30%",
-        aspectRatio: '1',
-        backgroundColor:'black'}}/>
-      </div>
-
-      <div style={{padding: "20px"}}>
-        <p style={{
-      color: "greenyellow",
-      fontFamily: "monospace",
-      fontSize: '24px',
-      textAlign: "center",
-      display: 'inline-block',
-      position: 'relative'}}> Realspace,[1] also called normal space,[2] space-normal to the Chiss, <br></br>
-      [3] or simply space,[4] was the dimension in which all of the galaxy's residents lived. The vast <br></br>
-       majority of space was a vacuum, a depressurized area devoid of atmosphere. The vacuum of space <br></br>
-       was fatal to many living organisms without the use of some sort of EVA suit and was unable to <br></br>
-       sustain fire.[5] Because travel using sublight engines within realspace was slow, sentients <br></br>
-       found a technological way to access the shadow dimension known as hyperspace. A starship <br></br>
-       equipped with a hyperdrive would "jump" from realspace into hyperspace, and "revert" from hyperspace<br></br>
-      to realspace.[1] Species that could survive in the vacuum of space include exogorths[6] and<br></br>
-      Cylo's cyborg whale-ships.[7] Neebrays could survive in nebulae, such as the Kaliida Nebula.[8]<br></br>
-      As well as being able to survive in space, the purrgil were capable of traveling through<br></br>
-       hyperspace.[9] Many droids were able to operate in space. Astromech droids were exposed<br></br>
-     to the vacuum of space when conducting repairs outside the hull of a starship[10] and when<br></br>
-      inserted into the astromech socket of a starfighter.[11] KX-series security droids could<br></br>
-      also survive in the vacuum of space.[12] Battle droids, used by the Confederacy of <br></br>
-      Independent Systems during the Clone Wars, occasionally sat on the outside of ships, <br></br>
-      such as pod-hunting shuttles.[13] </p>
-      </div>
-
-      <Snackbar
-        open={alertState.open}
-        autoHideDuration={6000}
-        onClose={() => setAlertState({ ...alertState, open: false })}
-      >
-        <Alert
-          onClose={() => setAlertState({ ...alertState, open: false })}
-          severity={alertState.severity}
-        >
-          {alertState.message}
-        </Alert>
-      </Snackbar>
-    </main>
+                      <Countdown
+                        date={startDate}
+                        onMount={({ completed }) => completed && setIsActive(true)}
+                        onComplete={() => setIsActive(true)}
+                        renderer={renderCounter}
+                      />
+                    )}
+              </MintButton>
+            )}
+        </MintContainer>
+      </ImageRow>
+      <TheTerminal>The Terminal</TheTerminal>
+      <Group>
+        <Image3 src={icon1}></Image3>
+        <Image4 src={icon1}></Image4>
+        <Image5 src={icon1}></Image5>
+        <Image6 src={icon1}></Image6>
+      </Group>
+      <Text3>
+        Rebooting...
+      </Text3>
+      <Text>
+        4,321 Records of a Lost Civilization Survived on the Solana
+        Blochchain...
+      </Text>
+      <Dots>...</Dots>
+      <Text2>
+        In the vast depths of the unknown galaxy, a knowledge hub known as "The Terminal" existed. It was the result of centuries of information assimilation by billions of species. It's contents were vast and unyielding, but over time the Galactic Emperor and his closest associates took control and used it's power to conquer new worlds through genocide and resource control. A ragtag band of rebels located "The Terminal" and managed to trigger The Big Wipe to destroy all the information to restore equality. A few knowledge keepers of the terminal managed to backup its corrupting core memory comprising of 4321 entries and fled to an undocumented system planet to reboot the system. These NFTs are the 4321 pieces of galactic information that survived The Big Wipe.
+      </Text2>
+      <Group2>
+        <SpacemanRow>
+          <Spaceman>Spaceman</Spaceman>
+          <Intelligence>Intelligence</Intelligence>
+        </SpacemanRow>
+        <Rect2Row>
+          <Rect2></Rect2>
+          <Rect4></Rect4>
+        </Rect2Row>
+        <PlanetRow>
+          <Planet>Planet</Planet>
+          <Spaceship>Spaceship</Spaceship>
+        </PlanetRow>
+        <Rect3Row>
+          <Rect3></Rect3>
+          <Rect5></Rect5>
+        </Rect3Row>
+      </Group2>
+    </Container>
   );
 };
 
@@ -293,5 +556,4 @@ const renderCounter = ({ days, hours, minutes, seconds, completed }: any) => {
     </CounterText>
   );
 };
-
 export default Home;

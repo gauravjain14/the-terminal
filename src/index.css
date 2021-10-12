@@ -13,3 +13,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'VT323';
+  src: local('VT323-Regular'), url(./fonts/VT323/VT323-Regular.ttf) format('truetype');
+}
