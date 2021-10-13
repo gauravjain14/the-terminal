@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MediaQuery from 'react-responsive'
 import styled from "styled-components";
 import Countdown from "react-countdown";
 import { Link } from "react-router-dom";
@@ -50,9 +51,17 @@ const Container = styled.div`
     background-color: rgba(0,0,0,1);
     flex-direction: column;
     width: 100vw;
-    padding-bottom: 60px;
-    padding-top: 24px;
+    padding-bottom: 36px;
+    padding-top: 48px;
   `;
+
+const MobileContainer = styled.div`
+  background-color: rgba(0,0,0,1);
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 5%;
+  padding-top: 5%;
+`;
 
 const TheTerminal = styled.span`
   font-family: VT323;
@@ -63,6 +72,16 @@ const TheTerminal = styled.span`
   text-align: center;
   font-size: 110px;
   margin-top: 20px;
+`;
+
+const MobileTerminal = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  align-self: center;
+  text-align: center;
+  font-size: 3.5vw;
 `;
 
 const Image = styled.img`
@@ -433,100 +452,109 @@ const Home = (props: HomeProps) => {
   }, [wallet, props.candyMachineId, props.connection]);
 
   return (
-    <Container>
-      <WalletDetails>
-        {wallet && (
-          <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
-        )}
-
-        {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
-
-        {wallet && <p>Total Available: {itemsAvailable}</p>}
-
-        {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-        {wallet && <p>Remaining: {itemsRemaining}</p>}
-      </WalletDetails>
-      <ImageRow>
-
-        <a href="https://discord.gg/YVem6zUS"
-          target="_blank" rel="noopener noreferrer"
-          style={{ height: '48px', width: '100%' }}>
-          <Image src={discord}></Image>
-        </a>
-        <a href="https://twitter.com"
-          target="_blank" rel="noopener noreferrer"
-          style={{ height: '43px', width: '100%', marginLeft: '15px' }}>
-          <Image2 src={twitter}></Image2>
-        </a>
-      </ImageRow>
-      <MintContainer>
-          {!wallet ? (
-            <ConnectButton>Connect Wallet</ConnectButton>
-          ) : (
-              <MintButton
-                disabled={isSoldOut || isMinting || !isActive}
-                //disabled={isMinting || !isActive}
-                //{isSoldOut ? }
-                onClick={onMint}
-                variant="contained"
-              >
-                {isSoldOut ? (
-                  "SOLD OUT"
-                ) : isActive ? (
-                  isMinting ? (
-                    <CircularProgress />
-                  ) : (
-                      "MINT"
-                    )
-                ) : (
-                      <Countdown
-                        date={startDate}
-                        onMount={({ completed }) => completed && setIsActive(true)}
-                        onComplete={() => setIsActive(true)}
-                        renderer={renderCounter}
-                      />
-                    )}
-              </MintButton>
+    <div>
+      <MediaQuery maxWidth={768}>
+        <MobileContainer>
+          <MobileTerminal> The Terminal </MobileTerminal>
+        </MobileContainer>
+      </MediaQuery>
+      <MediaQuery minWidth={768}>
+        <Container>
+          <WalletDetails>
+            {wallet && (
+              <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
             )}
-        </MintContainer>
-      <TheTerminal>The Terminal</TheTerminal>
-      <Group>
-        <Image3 src={icon1}></Image3>
-        <Image4 src={icon1}></Image4>
-        <Image5 src={icon1}></Image5>
-        <Image6 src={icon1}></Image6>
-      </Group>
-      <Text3>
-        Rebooting...
-      </Text3>
-      <Text>
-        4,321 Records of a Lost Civilization Survived on the Solana
-        Blochchain...
-      </Text>
-      <Dots>...</Dots>
-      <Text2>
-        In the vast depths of the unknown galaxy, a knowledge hub known as "The Terminal" existed. It was the result of centuries of information assimilation by billions of species. It's contents were vast and unyielding, but over time the Galactic Emperor and his closest associates took control and used it's power to conquer new worlds through genocide and resource control. A ragtag band of rebels located "The Terminal" and managed to trigger The Big Wipe to destroy all the information to restore equality. A few knowledge keepers of the terminal managed to backup its corrupting core memory comprising of 4321 entries and fled to an undocumented system planet to reboot the system. These NFTs are the 4321 pieces of galactic information that survived The Big Wipe.
-      </Text2>
-      <Group2>
-        <SpacemanRow>
-          <Spaceman>Spaceman</Spaceman>
-          <Intelligence>Intelligence</Intelligence>
-        </SpacemanRow>
-        <Rect2Row>
-          <Rect2></Rect2>
-          <Rect4></Rect4>
-        </Rect2Row>
-        <PlanetRow>
-          <Planet>Planet</Planet>
-          <Spaceship>Spaceship</Spaceship>
-        </PlanetRow>
-        <Rect3Row>
-          <Rect3></Rect3>
-          <Rect5></Rect5>
-        </Rect3Row>
-      </Group2>
-    </Container>
+
+            {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
+
+            {wallet && <p>Total Available: {itemsAvailable}</p>}
+
+            {wallet && <p>Redeemed: {itemsRedeemed}</p>}
+
+            {wallet && <p>Remaining: {itemsRemaining}</p>}
+          </WalletDetails>
+          <ImageRow>
+
+            <a href="https://discord.gg/YVem6zUS"
+              target="_blank" rel="noopener noreferrer"
+              style={{ height: '48px', width: '100%' }}>
+              <Image src={discord}></Image>
+            </a>
+            <a href="https://twitter.com"
+              target="_blank" rel="noopener noreferrer"
+              style={{ height: '43px', width: '100%', marginLeft: '15px' }}>
+              <Image2 src={twitter}></Image2>
+            </a>
+          </ImageRow>
+          <MintContainer>
+            {!wallet ? (
+              <ConnectButton>Connect Wallet</ConnectButton>
+            ) : (
+                <MintButton
+                  disabled={isSoldOut || isMinting || !isActive}
+                  //disabled={isMinting || !isActive}
+                  //{isSoldOut ? }
+                  onClick={onMint}
+                  variant="contained"
+                >
+                  {isSoldOut ? (
+                    "SOLD OUT"
+                  ) : isActive ? (
+                    isMinting ? (
+                      <CircularProgress />
+                    ) : (
+                        "MINT"
+                      )
+                  ) : (
+                        <Countdown
+                          date={startDate}
+                          onMount={({ completed }) => completed && setIsActive(true)}
+                          onComplete={() => setIsActive(true)}
+                          renderer={renderCounter}
+                        />
+                      )}
+                </MintButton>
+              )}
+          </MintContainer>
+          <TheTerminal>The Terminal</TheTerminal>
+          <Group>
+            <Image3 src={icon1}></Image3>
+            <Image4 src={icon1}></Image4>
+            <Image5 src={icon1}></Image5>
+            <Image6 src={icon1}></Image6>
+          </Group>
+          <Text3>
+            Rebooting...
+            </Text3>
+          <Text>
+            4,321 Records of a Lost Civilization Survived on the Solana
+            Blochchain...
+            </Text>
+          <Dots>...</Dots>
+          <Text2>
+            In the vast depths of the unknown galaxy, a knowledge hub known as "The Terminal" existed. It was the result of centuries of information assimilation by billions of species. It's contents were vast and unyielding, but over time the Galactic Emperor and his closest associates took control and used it's power to conquer new worlds through genocide and resource control. A ragtag band of rebels located "The Terminal" and managed to trigger The Big Wipe to destroy all the information to restore equality. A few knowledge keepers of the terminal managed to backup its corrupting core memory comprising of 4321 entries and fled to an undocumented system planet to reboot the system. These NFTs are the 4321 pieces of galactic information that survived The Big Wipe.
+            </Text2>
+          <Group2>
+            <SpacemanRow>
+              <Spaceman>Spaceman</Spaceman>
+              <Intelligence>Intelligence</Intelligence>
+            </SpacemanRow>
+            <Rect2Row>
+              <Rect2></Rect2>
+              <Rect4></Rect4>
+            </Rect2Row>
+            <PlanetRow>
+              <Planet>Planet</Planet>
+              <Spaceship>Spaceship</Spaceship>
+            </PlanetRow>
+            <Rect3Row>
+              <Rect3></Rect3>
+              <Rect5></Rect5>
+            </Rect3Row>
+          </Group2>
+        </Container>
+      </MediaQuery>
+    </div>
   );
 };
 
