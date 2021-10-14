@@ -50,18 +50,12 @@ const Container = styled.div`
     display: flex;
     background-color: rgba(0,0,0,1);
     flex-direction: column;
+    max-width: 100vw;
+    overflow-x: hidden;
     width: 100vw;
     padding-bottom: 36px;
     padding-top: 48px;
   `;
-
-const MobileContainer = styled.div`
-  background-color: rgba(0,0,0,1);
-  flex-direction: column;
-  width: 100%;
-  padding-bottom: 5%;
-  padding-top: 5%;
-`;
 
 const TheTerminal = styled.span`
   font-family: VT323;
@@ -72,16 +66,7 @@ const TheTerminal = styled.span`
   text-align: center;
   font-size: 110px;
   margin-top: 20px;
-`;
-
-const MobileTerminal = styled.span`
-  font-family: VT323;
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(255,255,255,1);
-  align-self: center;
-  text-align: center;
-  font-size: 3.5vw;
+  background-color: black;
 `;
 
 const Image = styled.img`
@@ -318,6 +303,139 @@ const TextStack = styled.div`
   position: relative;
 `;
 
+// mobile CSS
+const MobileContainer = styled.div`
+  background-color: rgba(0,0,0,1);
+  flex-direction: column;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+`;
+
+const MobileTerminal = styled.span`
+  background-color: black;
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  margin: 0 auto;
+  align-self: center;
+  text-align: center;
+  font-size: 18vw;
+  padding-top: 12px;
+`;
+
+const MobileImage = styled.img`
+  height: 30px;
+  margin-top: 6px;
+  object-fit: contain;
+  margin-right: 6px;
+`;
+
+const MobileImage2 = styled.img`
+  height: 30px;
+  margin-top: 6px;
+  object-fit: contain;
+  margin-left: 6px;
+`;
+
+const MobileImageRow = styled.div`
+  height: auto;
+  flex-direction: row;
+  display: block;
+  margin: 0 auto;
+  margin-top: 12px;
+`;
+
+const MobileGroup = styled.div`
+  height: 90px;
+  flex-direction: row;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 36px;
+`;
+
+const MobileImage3 = styled.img`
+  height: 100%;
+  margin-right: 10px;
+  object-fit: contain;
+`;
+
+const MobileImage4 = styled.img`
+  height: 100%;
+  margin-left: 10px;
+  object-fit: contain;
+`;
+
+const MobileGroup2 = styled.div`
+  height: 90px;
+  flex-direction: row;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 24px;
+`;
+
+const MobileImage5 = styled.img`
+  height: 100%;
+  margin-right: 10px;
+  object-fit: contain;
+`;
+
+const MobileImage6 = styled.img`
+  height: 100%;
+  margin-left: 10px;
+  object-fit: contain;
+`;
+
+const MobileText3 = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,1);
+  font-size: 8vw;
+  margin: 0 auto;
+  margin-top: 36px;
+`;
+
+const MobileText = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  color: rgba(255,255,255,1);
+  font-size: 6vw;
+  height: auto;
+  text-align: center;
+  margin-top: 12vw;
+  align-self: center;
+  overflow-wrap: normal;
+  max-width: 100%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+`;
+
+const MobileText2 = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  color: rgba(63,255,0,1);
+  font-size: 6vw;
+  height: auto;
+  text-align: center;
+  margin-top: 12vw;
+  align-self: center;
+  overflow-wrap: normal;
+  max-width: 100%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+`;
+
+const MobileDots = styled.span`
+  font-family: VT323;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(251,248,248,1);
+  font-size: 74px;
+  align-self: center;
+`;
+
 const MintButton = styled(Button)``; // add your styles here
 
 export interface HomeProps {
@@ -455,7 +573,36 @@ const Home = (props: HomeProps) => {
     <div>
       <MediaQuery maxWidth={768}>
         <MobileContainer>
+          <MobileImageRow>
+            <a href="https://discord.gg/YVem6zUS"
+              target="_blank" rel="noopener noreferrer">
+              <MobileImage src={discord}></MobileImage>
+            </a>
+            <a href="https://twitter.com"
+              target="_blank" rel="noopener noreferrer">
+              <MobileImage2 src={twitter}></MobileImage2>
+            </a>
+          </MobileImageRow>
           <MobileTerminal> The Terminal </MobileTerminal>
+          <MobileGroup>
+            <MobileImage3 src={icon1}></MobileImage3>
+            <MobileImage4 src={icon1}></MobileImage4>
+          </MobileGroup>
+          <MobileGroup2>
+            <MobileImage5 src={icon1}></MobileImage5>
+            <MobileImage6 src={icon1}></MobileImage6>
+          </MobileGroup2>
+          <MobileText3>
+            Rebooting...
+          </MobileText3>
+          <MobileText>
+            4,321 Records of a Lost Civilization Survived on the Solana
+            Blochchain...
+          </MobileText>
+          <MobileDots>...</MobileDots>
+          <MobileText2>
+            In the vast depths of the unknown galaxy, a knowledge hub known as "The Terminal" existed. It was the result of centuries of information assimilation by billions of species. It's contents were vast and unyielding, but over time the Galactic Emperor and his closest associates took control and used it's power to conquer new worlds through genocide and resource control. A ragtag band of rebels located "The Terminal" and managed to trigger The Big Wipe to destroy all the information to restore equality. A few knowledge keepers of the terminal managed to backup its corrupting core memory comprising of 4321 entries and fled to an undocumented system planet to reboot the system. These NFTs are the 4321 pieces of galactic information that survived The Big Wipe.
+          </MobileText2>
         </MobileContainer>
       </MediaQuery>
       <MediaQuery minWidth={768}>
@@ -533,7 +680,7 @@ const Home = (props: HomeProps) => {
           <Dots>...</Dots>
           <Text2>
             In the vast depths of the unknown galaxy, a knowledge hub known as "The Terminal" existed. It was the result of centuries of information assimilation by billions of species. It's contents were vast and unyielding, but over time the Galactic Emperor and his closest associates took control and used it's power to conquer new worlds through genocide and resource control. A ragtag band of rebels located "The Terminal" and managed to trigger The Big Wipe to destroy all the information to restore equality. A few knowledge keepers of the terminal managed to backup its corrupting core memory comprising of 4321 entries and fled to an undocumented system planet to reboot the system. These NFTs are the 4321 pieces of galactic information that survived The Big Wipe.
-            </Text2>
+          </Text2>
           <Group2>
             <SpacemanRow>
               <Spaceman>Spaceman</Spaceman>
