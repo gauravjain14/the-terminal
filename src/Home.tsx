@@ -9,6 +9,7 @@ import sol_terminal from './sol_terminal.jpeg';
 import icon1 from "./assets/images/ICON.png";
 import twitter from "./assets/images/twitter.png";
 import discord from "./assets/images/Discord-Logo-White.png";
+import copyright from "./assets/images/copyright.svg";
 import './fonts/VT323/VT323-Regular.ttf';
 import "./Home.css";
 //import CSS from 'csstype';
@@ -47,15 +48,15 @@ const WalletDetails = styled.div`
 `;
 
 const Container = styled.div`
-    display: flex;
-    background-color: rgba(0,0,0,1);
-    flex-direction: column;
-    max-width: 100vw;
-    overflow-x: hidden;
-    width: 100vw;
-    padding-bottom: 36px;
-    padding-top: 48px;
-  `;
+  display: flex;
+  background-color: rgba(0,0,0,1);
+  flex-direction: column;
+  max-width: 100vw;
+  overflow-x: hidden;
+  width: 100vw;
+  padding-bottom: 36px;
+  padding-top: 48px;
+`;
 
 const TheTerminal = styled.span`
   font-family: VT323;
@@ -64,20 +65,23 @@ const TheTerminal = styled.span`
   color: rgba(255,255,255,1);
   align-self: center;
   text-align: center;
-  font-size: 110px;
+  font-size: 7vw;
   margin-top: 20px;
-  background-color: black;
 `;
 
 const Image = styled.img`
+  width: 48px;
   height: 48px;
   margin-top: 6px;
+  margin-right: 8px;
   object-fit: contain;
 `;
 
 const Image2 = styled.img`
+  width: 48px;
   height: 43px;
   margin-top: 6px;
+  margin-left: 8px;
   object-fit: contain;
 `;
 
@@ -86,6 +90,7 @@ const ImageRow = styled.div`
   flex-direction: row;
   display: block;
   margin: 0 auto;
+  z-index: 999;
 `;
 
 const MintContainer = styled.div`
@@ -133,7 +138,7 @@ const Text3 = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255,255,255,1);
-  font-size: 48px;
+  font-size: 3vw;
   margin: 0 auto;
   margin-top: 36px;
 `;
@@ -143,8 +148,7 @@ const Text = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255,255,255,1);
-  font-size: 36px;
-  width: 720px;
+  font-size: 2vw;
   height: auto;
   text-align: center;
   margin-top: 120px;
@@ -162,29 +166,16 @@ const Text2 = styled.span`
   text-align: center;
   align-self: center;
   margin-top: 24px;
-  margin-bottom: 120px;
+  margin-bottom: 36px;
 `;
 
 const Dots = styled.span`
   font-family: VT323;
   font-style: normal;
   font-weight: 400;
-  color: rgba(251,248,248,1);
+  color: #7289da;
   font-size: 74px;
   align-self: center;
-`;
-
-const Group2Backup = styled.div`
-  width: auto;
-  height: 469px;
-  flex-direction: column;
-  align-self: center;
-  align-items: stretch;
-  justify-content: space-between;
-  margin-top: 48px;
-  display: flex;
-  position: relative;
-  padding-bottom: 36px;
 `;
 
 const Group2 = styled.div`
@@ -610,6 +601,14 @@ const Home = (props: HomeProps) => {
           <MobileText2>
             In the vast depths of the unknown galaxy, a knowledge hub known as "The Terminal" existed. It was the result of centuries of information assimilation by billions of species. It's contents were vast and unyielding, but over time the Galactic Emperor and his closest associates took control and used it's power to conquer new worlds through genocide and resource control. A ragtag band of rebels located "The Terminal" and managed to trigger The Big Wipe to destroy all the information to restore equality. A few knowledge keepers of the terminal managed to backup its corrupting core memory comprising of 4321 entries and fled to an undocumented system planet to reboot the system. These NFTs are the 4321 pieces of galactic information that survived The Big Wipe.
           </MobileText2>
+          <p style={{margin:"0 auto",
+                  alignItems:"center",
+                  textAlign:"center",
+                  marginTop:"24px",
+                  fontFamily:"VT323",
+                  fontSize:"4vw",
+                  color:"#7289da",
+                  marginBottom:"18px"}}>Launched by the Rebels.</p>
         </MobileContainer>
       </MediaQuery>
       <MediaQuery minWidth={768}>
@@ -628,15 +627,12 @@ const Home = (props: HomeProps) => {
             {wallet && <p>Remaining: {itemsRemaining}</p>}
           </WalletDetails>
           <ImageRow>
-
             <a href="https://discord.gg/YVem6zUS"
-              target="_blank" rel="noopener noreferrer"
-              style={{ height: '48px', width: '100%' }}>
+              target="_blank" rel="noopener noreferrer">
               <Image src={discord}></Image>
             </a>
             <a href="https://twitter.com"
-              target="_blank" rel="noopener noreferrer"
-              style={{ height: '43px', width: '100%', marginLeft: '15px' }}>
+              target="_blank" rel="noopener noreferrer">
               <Image2 src={twitter}></Image2>
             </a>
           </ImageRow>
@@ -708,6 +704,14 @@ const Home = (props: HomeProps) => {
           </Group2>
         </Container>
       </MediaQuery>
+      <p style={{margin:"0 auto",
+              alignItems:"center",
+              textAlign:"center",
+              marginTop:"24px",
+              fontFamily:"VT323",
+              fontSize:"2vw",
+              color:"#7289da",
+              marginBottom:"18px"}}>Launched by the Rebels.</p>
     </div>
   );
 };
